@@ -8,17 +8,18 @@ public class SmallChangeSys {
     public static void main(String[] args) {
         boolean loop =true;
         Scanner scanner = new Scanner(System.in);
-        String key="";
+        String key;
         String details="------------钱包明细-----------";
-        double money = 0;
+        double money;
         double balence = 0;
-        Date date = null;//表示日期
+        Date date;//表示日期
         SimpleDateFormat sdf = new SimpleDateFormat("yyy-MM-dd HH:mm");
-        String reason="";
+        String reason;
 
 
         do {
             System.out.println("\n\n========你的钱包菜单========");
+
             System.out.println("\t\t1.你的钱包明细");
             System.out.println("\t\t2.收益");
             System.out.println("\t\t3.消费");
@@ -27,7 +28,9 @@ public class SmallChangeSys {
             key = scanner.next();
             switch(key){
                 case "1":
-                    System.out.println(details);
+                    if(details.equals("------------钱包明细-----------")){
+                        System.out.println("\n暂无明细，请多多使用本功能吧！");
+                    }else System.out.println(details);
                     break;
                 case "2":
                     System.out.println("您的收益为：");
@@ -46,7 +49,7 @@ public class SmallChangeSys {
                     else details += "\n收益入账\t"+money+"\t" + sdf.format(date) + "\t" +"余额\t"+balence;
                     break;
                 case "3":
-                    System.out.println(" 你的消费：");
+                    System.out.println("你的消费：");
                     money = scanner.nextDouble();
                     System.out.println("消费项目：");
                     reason= scanner.next();
